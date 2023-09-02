@@ -9,7 +9,13 @@ const app = createApp(App)
 app.use(ElementPlus, {
   locale: zhCn,
 })
-import 'virtual:svg-icons-register'
-app.mount('#app')
 
-console.log(import.meta.env)
+// svg插件需要配置代碼
+import 'virtual:svg-icons-register'
+// 引入自定義插件對象:註冊整個項目的全局組件
+import globalComponent from '@/components'
+console.log(globalComponent)
+app.use(globalComponent)
+import '@/styles/index.scss'
+
+app.mount('#app')
